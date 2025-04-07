@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+  <header class="header">
+    <div class="logo">Skillynx<img src="https://i.ibb.co/Csnmk6wZ/bracket2.png" alt="code bracket" class="bracket-img"></div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#" class="active">Dashboard</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Networking</a></li>
+      </ul>
+    </nav>
+    <div class="user-actions">
+      <div class="user-info">
+        <span class="user-name">{{ userName || 'User' }}</span>
+        <span class="user-email">{{ userEmail || 'user@example.com' }}</span>
+      </div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="welcome-section">
+      <h1>Welcome to Skillynx Dashboard</h1>
+      <p>Your professional development platform for tracking skills and networking with peers.</p>
+    </section>
+
+    <section class="stats-section">
+      <div class="stat-card">
+        <h3>Skills</h3>
+        <p class="stat-number">12</p>
+        <p class="stat-description">Skills tracked</p>
+      </div>
+      <div class="stat-card">
+        <h3>Projects</h3>
+        <p class="stat-number">4</p>
+        <p class="stat-description">Active projects</p>
+      </div>
+      <div class="stat-card">
+        <h3>Connections</h3>
+        <p class="stat-number">28</p>
+        <p class="stat-description">Professional connections</p>
+      </div>
+      <div class="stat-card">
+        <h3>Achievements</h3>
+        <p class="stat-number">7</p>
+        <p class="stat-description">Completed milestones</p>
+      </div>
+    </section>
+
+    <section class="recent-activity">
+      <h2>Recent Activity</h2>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-icon">🚀</div>
+          <div class="activity-content">
+            <h4>New Skill Added</h4>
+            <p>You added Angular Framework to your skill set</p>
+            <span class="activity-time">2 hours ago</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🤝</div>
+          <div class="activity-content">
+            <h4>New Connection</h4>
+            <p>You connected with Jane Smith</p>
+            <span class="activity-time">Yesterday</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🏆</div>
+          <div class="activity-content">
+            <h4>Achievement Unlocked</h4>
+            <p>Completed Front-end Development Fundamentals</p>
+            <span class="activity-time">3 days ago</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
