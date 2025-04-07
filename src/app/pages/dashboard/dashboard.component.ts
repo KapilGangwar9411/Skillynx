@@ -13,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class DashboardComponent implements OnInit {
   userName: string | null = null;
   userEmail: string | null = null;
+  isMobileMenuOpen = false;
 
   constructor(
     private authService: AuthService,
@@ -36,5 +37,9 @@ export class DashboardComponent implements OnInit {
         console.error('Error during logout:', error);
       }
     });
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }

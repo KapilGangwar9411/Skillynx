@@ -1,80 +1,470 @@
 <div class="dashboard-container">
-  <header class="header">
-    <div class="logo">Skillynx<img src="https://i.ibb.co/Csnmk6wZ/bracket2.png" alt="code bracket" class="bracket-img"></div>
-    <nav class="nav">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo">Skillynx<img src="https://i.ibb.co/Csnmk6wZ/bracket2.png" alt="code bracket" class="bracket-img"></div>
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+          <path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="sidebar-nav" [class.show]="isMobileMenuOpen">
       <ul>
-        <li><a href="#" class="active">Dashboard</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Networking</a></li>
+        <li class="active"><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+          Dashboard
+        </a></li>
+        <li><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+          Portfolio
+        </a></li>
+        <li><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          Coding
+        </a></li>
+        <li><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 14.63 21 12.55 21 10V7c0-1.1-.9-2-2-2zM5 10V7h2v3.82C5.84 10.4 5 9.3 5 10zm14 0c0-.7-.84-1.4-2-1.18V7h2v3z"/></svg>
+          Achievements
+        </a></li>
+        <li><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          Certifications
+        </a></li>
+        <li><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zM8 13h2.55v3h2.9v-3H16l-4-4z"/></svg>
+          Opportunities
+        </a></li>
+        <li><a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          Settings
+        </a></li>
       </ul>
     </nav>
-    <div class="user-actions">
-      <div class="user-info">
-        <span class="user-name">{{ userName || 'User' }}</span>
-        <span class="user-email">{{ userEmail || 'user@example.com' }}</span>
-      </div>
-      <button class="logout-btn" (click)="logout()">Logout</button>
+    <div class="logout-container">
+      <button class="logout-btn" (click)="logout()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon"><path fill="currentColor" d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+        Logout
+      </button>
     </div>
-  </header>
+  </aside>
 
+  <!-- Main Content -->
   <main class="main-content">
-    <section class="welcome-section">
-      <h1>Welcome to Skillynx Dashboard</h1>
-      <p>Your professional development platform for tracking skills and networking with peers.</p>
-    </section>
+    <!-- Header -->
+    <header class="header">
+      <div class="search-bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="search-icon">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" placeholder="Search skills, opportunities, or resources...">
+      </div>
+      <div class="user-actions">
+        <div class="notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon">
+            <path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+          </svg>
+          <span class="notification-badge">3</span>
+        </div>
+        <div class="user-info">
+          <span class="user-name">{{ userName || 'User' }}</span>
+          <span class="user-email">{{ userEmail || 'user@example.com' }}</span>
+        </div>
+        <div class="user-avatar">
+          <img src="https://i.pravatar.cc/150?img=12" alt="User Avatar">
+        </div>
+      </div>
+    </header>
 
-    <section class="stats-section">
-      <div class="stat-card">
-        <h3>Skills</h3>
-        <p class="stat-number">12</p>
-        <p class="stat-description">Skills tracked</p>
-      </div>
-      <div class="stat-card">
-        <h3>Projects</h3>
-        <p class="stat-number">4</p>
-        <p class="stat-description">Active projects</p>
-      </div>
-      <div class="stat-card">
-        <h3>Connections</h3>
-        <p class="stat-number">28</p>
-        <p class="stat-description">Professional connections</p>
-      </div>
-      <div class="stat-card">
-        <h3>Achievements</h3>
-        <p class="stat-number">7</p>
-        <p class="stat-description">Completed milestones</p>
-      </div>
-    </section>
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+      <!-- Welcome Banner -->
+      <section class="welcome-banner">
+        <div class="welcome-message">
+          <h1>Welcome back, {{ userName || 'Developer' }}! 👋</h1>
+          <p>Your coding journey is looking great. Here's your portfolio at a glance.</p>
+        </div>
+        <div class="quick-actions">
+          <button class="action-btn primary">Update Skills</button>
+          <button class="action-btn secondary">Add Project</button>
+        </div>
+      </section>
 
-    <section class="recent-activity">
-      <h2>Recent Activity</h2>
-      <div class="activity-list">
-        <div class="activity-item">
-          <div class="activity-icon">🚀</div>
-          <div class="activity-content">
-            <h4>New Skill Added</h4>
-            <p>You added Angular Framework to your skill set</p>
-            <span class="activity-time">2 hours ago</span>
+      <!-- Portfolio Stats -->
+      <section class="stats-section">
+        <div class="section-header">
+          <h2>Portfolio Analytics</h2>
+          <select class="time-filter">
+            <option>Last 30 days</option>
+            <option>Last 3 months</option>
+            <option>Last year</option>
+            <option>All time</option>
+          </select>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card github">
+            <div class="stat-header">
+              <div class="stat-icon github-icon">
+                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub Logo" class="platform-logo">
+              </div>
+              <h3>GitHub</h3>
+            </div>
+            <div class="stat-body">
+              <div class="stat-item">
+                <span class="stat-label">Repositories</span>
+                <span class="stat-value">24</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Commits</span>
+                <span class="stat-value">387</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Stars</span>
+                <span class="stat-value">45</span>
+              </div>
+            </div>
+            <div class="stat-footer">
+              <div class="trend positive">
+                <i class="trend-icon">↗️</i>
+                <span>12% from last month</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card leetcode">
+            <div class="stat-header">
+              <div class="stat-icon leetcode-icon">
+                <img src="https://leetcode.com/_next/static/images/logo-ff2b712834cf26bf50a5de58ee27bcef.png" alt="LeetCode Logo" class="platform-logo">
+              </div>
+              <h3>LeetCode</h3>
+            </div>
+            <div class="stat-body">
+              <div class="stat-item">
+                <span class="stat-label">Problems Solved</span>
+                <span class="stat-value">157</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Contest Rating</span>
+                <span class="stat-value">1842</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Global Rank</span>
+                <span class="stat-value">#12,453</span>
+              </div>
+            </div>
+            <div class="stat-footer">
+              <div class="trend positive">
+                <i class="trend-icon">↗️</i>
+                <span>5% from last month</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card gfg">
+            <div class="stat-header">
+              <div class="stat-icon gfg-icon">
+                <img src="https://media.geeksforgeeks.org/gfg-gg-logo.svg" alt="GeeksForGeeks Logo" class="platform-logo">
+              </div>
+              <h3>GeeksForGeeks</h3>
+            </div>
+            <div class="stat-body">
+              <div class="stat-item">
+                <span class="stat-label">Problems Solved</span>
+                <span class="stat-value">93</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Score</span>
+                <span class="stat-value">1320</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Articles</span>
+                <span class="stat-value">2</span>
+              </div>
+            </div>
+            <div class="stat-footer">
+              <div class="trend negative">
+                <i class="trend-icon">↘️</i>
+                <span>3% from last month</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card certificates">
+            <div class="stat-header">
+              <div class="stat-icon cert-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/1021/1021767.png" alt="Certificate Icon" class="platform-logo">
+              </div>
+              <h3>Certifications</h3>
+            </div>
+            <div class="stat-body">
+              <div class="stat-item">
+                <span class="stat-label">Completed</span>
+                <span class="stat-value">7</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">In Progress</span>
+                <span class="stat-value">2</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Renewed</span>
+                <span class="stat-value">3</span>
+              </div>
+            </div>
+            <div class="stat-footer">
+              <div class="trend positive">
+                <i class="trend-icon">↗️</i>
+                <span>1 new this month</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="activity-item">
-          <div class="activity-icon">🤝</div>
-          <div class="activity-content">
-            <h4>New Connection</h4>
-            <p>You connected with Jane Smith</p>
-            <span class="activity-time">Yesterday</span>
+      </section>
+
+      <!-- Two-column layout for Opportunities and Activity -->
+      <div class="two-column-layout">
+        <!-- Opportunities Section -->
+        <section class="opportunities-section">
+          <div class="section-header">
+            <h2>Recommended Opportunities</h2>
+            <a href="#" class="view-all">View all</a>
           </div>
-        </div>
-        <div class="activity-item">
-          <div class="activity-icon">🏆</div>
-          <div class="activity-content">
-            <h4>Achievement Unlocked</h4>
-            <p>Completed Front-end Development Fundamentals</p>
-            <span class="activity-time">3 days ago</span>
+
+          <div class="opportunity-list">
+            <div class="opportunity-card">
+              <div class="opportunity-tag hackathon">Hackathon</div>
+              <h3>AI Code Challenge 2023</h3>
+              <p>Build intelligent coding assistants using advanced ML models</p>
+              <div class="opportunity-details">
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="icon">
+                    <path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z"/>
+                  </svg>
+                  <span>Jul 15 - Jul 17</span>
+                </div>
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="icon">
+                    <path fill="currentColor" d="M20.2 5H3.8C2.8 5 2 5.8 2 6.8v10.5c0 1 .8 1.8 1.8 1.8h16.4c1 0 1.8-.8 1.8-1.8V6.8c0-1-.8-1.8-1.8-1.8zm0 2.3l-8 5.3-8-5.3V8.7l8 5.3 8-5.3v-1.4z"/>
+                  </svg>
+                  <span>$5000 in prizes</span>
+                </div>
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="icon">
+                    <path fill="currentColor" d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+                  </svg>
+                  <span>Remote</span>
+                </div>
+              </div>
+              <div class="matches">
+                <span class="match-label">Skills match:</span>
+                <div class="match-pills">
+                  <span class="pill">Python</span>
+                  <span class="pill">Machine Learning</span>
+                  <span class="pill">+2</span>
+                </div>
+              </div>
+              <button class="apply-btn">Apply Now</button>
+            </div>
+
+            <div class="opportunity-card">
+              <div class="opportunity-tag internship">Internship</div>
+              <h3>Frontend Developer at TechSolutions</h3>
+              <p>Build and optimize user interfaces for enterprise applications</p>
+              <div class="opportunity-details">
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="icon">
+                    <path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-5 5h-2v2h2v-2z"/>
+                  </svg>
+                  <span>3 months</span>
+                </div>
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="icon">
+                    <path fill="currentColor" d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                  </svg>
+                  <span>$2500/month</span>
+                </div>
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="icon">
+                    <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>San Francisco</span>
+                </div>
+              </div>
+              <div class="matches">
+                <span class="match-label">Skills match:</span>
+                <div class="match-pills">
+                  <span class="pill">Angular</span>
+                  <span class="pill">TypeScript</span>
+                  <span class="pill">+3</span>
+                </div>
+              </div>
+              <button class="apply-btn">Apply Now</button>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="activity-section">
+          <div class="section-header">
+            <h2>Recent Activity</h2>
+            <a href="#" class="view-all">View all</a>
+          </div>
+
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon github">
+                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub Logo" class="platform-logo">
+              </div>
+              <div class="activity-content">
+                <h4>New GitHub Commit</h4>
+                <p>You pushed 5 commits to <strong>portfolio-analyzer</strong></p>
+                <span class="activity-time">2 hours ago</span>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon leetcode">
+                <img src="https://leetcode.com/_next/static/images/logo-ff2b712834cf26bf50a5de58ee27bcef.png" alt="LeetCode Logo" class="platform-logo">
+              </div>
+              <div class="activity-content">
+                <h4>LeetCode Problem Solved</h4>
+                <p>You solved <strong>Maximum Subarray</strong> problem</p>
+                <span class="activity-time">Yesterday</span>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon cert">
+                <img src="https://cdn-icons-png.flaticon.com/512/1021/1021767.png" alt="Certificate Icon" class="platform-logo">
+              </div>
+              <div class="activity-content">
+                <h4>New Certification</h4>
+                <p>You earned <strong>Advanced Angular</strong> certification</p>
+                <span class="activity-time">3 days ago</span>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon gfg">
+                <img src="https://media.geeksforgeeks.org/gfg-gg-logo.svg" alt="GeeksForGeeks Logo" class="platform-logo">
+              </div>
+              <div class="activity-content">
+                <h4>GFG Achievement</h4>
+                <p>You reached <strong>500 points</strong> milestone</p>
+                <span class="activity-time">1 week ago</span>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+
+      <!-- Skills Section -->
+      <section class="skills-section">
+        <div class="section-header">
+          <h2>Your Skills</h2>
+          <button class="add-skill-btn">+ Add Skill</button>
+        </div>
+
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 65%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Java</span>
+                  <span class="skill-level">Beginner</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 40%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Frameworks & Libraries</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Angular</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">React</span>
+                  <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Node.js</span>
+                  <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3>Tools & Technologies</h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Git</span>
+                  <span class="skill-level">Advanced</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Docker</span>
+                  <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 60%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">AWS</span>
+                  <span class="skill-level">Beginner</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 35%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 </div>
